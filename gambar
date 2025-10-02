@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografis Ekonomi Digital Indonesia 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .kpi-value {
+            font-weight: 900;
+            color: #118AB2;
+            line-height: 1;
+        }
+        .flowchart-step {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            min-height: 100px;
+        }
+        .flowchart-arrow {
+            font-size: 2.5rem;
+            color: #FFD166;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-black text-[#073B4C] mb-2">Dekade Digital Indonesia</h1>
+            <p class="text-lg md:text-xl text-[#118AB2] max-w-3xl mx-auto">Sebuah Potret Ekonomi Digital yang Mencapai Tonggak Sejarah Baru pada Tahun 2025</p>
+        </header>
+
+        <main class="space-y-12">
+            <section id="overview" class="text-center">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-2xl font-bold text-[#073B4C] mb-2">Nilai Ekonomi Digital (GMV) 2025</h2>
+                    <p class="kpi-value text-7xl md:text-8xl mb-4">$150 Miliar</p>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Didorong oleh adopsi digital yang masif, nilai transaksi bruto (GMV) ekonomi digital Indonesia diproyeksikan mencapai rekor baru, menandai pertumbuhan eksponensial dalam lima tahun terakhir.</p>
+                </div>
+            </section>
+            
+            <section id="breakdown">
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-xl font-bold text-center text-[#073B4C] mb-4">Komposisi Sektor Ekonomi Digital</h3>
+                        <div class="chart-container h-[300px] md:h-[350px]">
+                            <canvas id="sectorBreakdownChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="text-left space-y-4">
+                        <h2 class="text-3xl font-bold text-[#073B4C]">Gambaran Umum</h2>
+                        <p class="text-gray-600">Ekonomi digital Indonesia ditopang oleh beberapa pilar utama. E-commerce tetap menjadi mesin penggerak terbesar, menyumbang lebih dari separuh total nilai GMV. Sektor ini terus berinovasi dalam logistik dan pengalaman pengguna. Sementara itu, layanan transportasi & pesan-antar makanan serta teknologi finansial (fintech) menunjukkan pertumbuhan yang solid, merevolusi mobilitas perkotaan dan akses keuangan bagi jutaan orang.</p>
+                         <div class="bg-white rounded-lg shadow-md p-6 flex items-center justify-center space-x-4">
+                             <span class="text-5xl">🌐</span>
+                            <div>
+                               <p class="text-gray-600 text-lg">Tingkat Penetrasi Internet</p>
+                               <p class="kpi-value text-5xl">80%</p>
+                           </div>
+                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="ecommerce">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-[#073B4C]">Mesin Pertumbuhan: E-Commerce</h2>
+                    <p class="text-gray-600 max-w-3xl mx-auto mt-2">Sebagai tulang punggung ekonomi digital, sektor e-commerce menunjukkan pertumbuhan pengguna aktif yang konsisten dan persaingan pasar yang dinamis antar platform utama.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-xl font-bold text-center text-[#073B4C] mb-4">Pertumbuhan Pengguna Aktif Bulanan</h3>
+                        <div class="chart-container">
+                            <canvas id="userGrowthChart"></canvas>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4 text-center">Peningkatan signifikan terlihat sejak pandemi, dengan tren adopsi yang terus berlanjut di wilayah urban dan rural.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-xl font-bold text-center text-[#073B4C] mb-4">Pangsa Pasar Platform E-Commerce 2025</h3>
+                         <div class="chart-container">
+                            <canvas id="marketShareChart"></canvas>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4 text-center">Persaingan ketat mendorong inovasi, dengan pemain lokal dan regional berlomba menawarkan layanan terbaik.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="fintech">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-[#073B4C]">Revolusi Teknologi Finansial (Fintech)</h2>
+                    <p class="text-gray-600 max-w-3xl mx-auto mt-2">Fintech mempercepat inklusi keuangan di seluruh nusantara, dengan layanan pembayaran digital menjadi yang paling banyak diadopsi.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
+                    <div class="md:col-span-3 bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-xl font-bold text-center text-[#073B4C] mb-4">Tingkat Adopsi Layanan Fintech</h3>
+                        <div class="chart-container">
+                            <canvas id="fintechAdoptionChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 text-left">
+                         <p class="text-gray-600">Pembayaran digital memimpin adopsi, didorong oleh kemudahan transaksi di platform e-commerce dan layanan sehari-hari. Sementara itu, pinjaman digital (P2P lending) dan platform investasi digital terus berkembang, membuka akses permodalan dan investasi bagi segmen yang sebelumnya tidak terlayani oleh lembaga keuangan tradisional.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="future">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-[#073B4C]">Menuju Masa Depan Digital</h2>
+                    <p class="text-gray-600 max-w-3xl mx-auto mt-2">Untuk memaksimalkan potensi, Indonesia perlu fokus pada beberapa area kunci. Peningkatan talenta digital dan pemerataan infrastruktur menjadi fondasi utama.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <h3 class="text-xl font-bold text-center text-[#073B4C] mb-6">Peta Jalan Menuju Kepemimpinan Digital</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-5 items-center gap-4">
+                        <div class="flowchart-step bg-[#FF6B6B] text-white">Peningkatan Talenta Digital</div>
+                        <div class="flowchart-arrow text-center hidden md:block">→</div>
+                        <div class="flowchart-step bg-[#FFD166] text-[#073B4C]">Pemerataan Infrastruktur 5G</div>
+                        <div class="flowchart-arrow text-center hidden md:block">→</div>
+                        <div class="flowchart-step bg-[#06D6A0] text-[#073B4C]">Regulasi Pro-Inovasi & Keamanan Data</div>
+                    </div>
+                </div>
+                 <div class="mt-8 bg-white rounded-lg shadow-md p-6 text-center">
+                    <h2 class="text-2xl font-bold text-[#073B4C] mb-2">Proyeksi Nilai Ekonomi Digital (GMV) 2030</h2>
+                    <p class="kpi-value text-7xl md:text-8xl">$300+ Miliar</p>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Dengan fondasi yang kuat, Indonesia berada di jalur yang tepat untuk menjadi pemimpin ekonomi digital di Asia Tenggara.</p>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer class="text-center mt-12 pt-6 border-t border-gray-200">
+            <p class="text-sm text-gray-500">&copy; 2025 Analisis Data. Sumber data disarikan dari laporan industri dan proyeksi pasar.</p>
+        </footer>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const energeticPlayfulPalette = {
+        red: '#FF6B6B',
+        yellow: '#FFD166',
+        green: '#06D6A0',
+        blue: '#118AB2',
+        darkBlue: '#073B4C'
+    };
+    
+    const tooltipTitleCallback = (tooltipItems) => {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        if (Array.isArray(label)) {
+            return label.join(' ');
+        }
+        return label;
+    };
+
+    const defaultChartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    font: {
+                        family: 'Inter'
+                    }
+                }
+            },
+            tooltip: {
+                callbacks: {
+                    title: tooltipTitleCallback
+                },
+                bodyFont: {
+                    family: 'Inter'
+                },
+                titleFont: {
+                    family: 'Inter'
+                }
+            }
+        }
+    };
+
+    function wrapLabel(label) {
+        if (label.length > 16) {
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > 16 && currentLine.length > 0) {
+                    lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        }
+        return label;
+    }
+
+    const sectorBreakdownCtx = document.getElementById('sectorBreakdownChart').getContext('2d');
+    new Chart(sectorBreakdownCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['E-Commerce', wrapLabel('Transportasi & Pesan Antar'), 'Fintech', 'Media Online'],
+            datasets: [{
+                label: 'Komposisi GMV',
+                data: [65, 15, 15, 5],
+                backgroundColor: [
+                    energeticPlayfulPalette.blue,
+                    energeticPlayfulPalette.green,
+                    energeticPlayfulPalette.yellow,
+                    energeticPlayfulPalette.red
+                ],
+                borderColor: '#FFFFFF',
+                borderWidth: 2
+            }]
+        },
+        options: { ...defaultChartOptions }
+    });
+
+    const userGrowthCtx = document.getElementById('userGrowthChart').getContext('2d');
+    new Chart(userGrowthCtx, {
+        type: 'line',
+        data: {
+            labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
+            datasets: [{
+                label: 'Juta Pengguna',
+                data: [86, 115, 140, 165, 185, 202],
+                backgroundColor: 'rgba(17, 138, 178, 0.2)',
+                borderColor: energeticPlayfulPalette.blue,
+                tension: 0.3,
+                fill: true,
+            }]
+        },
+        options: { ...defaultChartOptions, scales: { y: { beginAtZero: true } } }
+    });
+
+    const marketShareCtx = document.getElementById('marketShareChart').getContext('2d');
+    new Chart(marketShareCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Platform A', 'Platform B', 'Platform C', 'Lainnya'],
+            datasets: [{
+                label: 'Pangsa Pasar (%)',
+                data: [40, 32, 18, 10],
+                backgroundColor: [
+                    energeticPlayfulPalette.blue,
+                    energeticPlayfulPalette.green,
+                    energeticPlayfulPalette.yellow,
+                    energeticPlayfulPalette.red,
+                ],
+                borderRadius: 4
+            }]
+        },
+        options: { ...defaultChartOptions, indexAxis: 'y' }
+    });
+
+    const fintechAdoptionCtx = document.getElementById('fintechAdoptionChart').getContext('2d');
+    new Chart(fintechAdoptionCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Urban', 'Rural'],
+            datasets: [
+                {
+                    label: 'Pembayaran Digital',
+                    data: [85, 60],
+                    backgroundColor: energeticPlayfulPalette.blue,
+                },
+                {
+                    label: 'Pinjaman Digital',
+                    data: [35, 15],
+                    backgroundColor: energeticPlayfulPalette.green,
+                },
+                {
+                    label: 'Investasi Digital',
+                    data: [40, 10],
+                    backgroundColor: energeticPlayfulPalette.yellow,
+                }
+            ]
+        },
+        options: {
+            ...defaultChartOptions,
+            scales: {
+                x: { stacked: true },
+                y: { stacked: true, beginAtZero: true, max: 100 }
+            }
+        }
+    });
+});
+</script>
+
+</body>
+</html>
